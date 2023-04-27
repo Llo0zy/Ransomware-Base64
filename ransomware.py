@@ -1,8 +1,11 @@
 # Modules
 import pathlib, os, secrets, base64, getpass
-import cryptography
-from cryptography.fernet import Fernet
-from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+try:
+    import cryptography
+    from cryptography.fernet import Fernet
+    from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+except:
+    os.system('pip install cryptography')
 
 def generate_salt(size=16):
     return secrets.token_bytes(size)
